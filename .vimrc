@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 " os x backspace fix
 set backspace=indent,eol,start
 "set t_kb
@@ -19,12 +21,15 @@ set incsearch
 set showcmd
 set nowrap
 
-syntax on             " Enable syntax highlighting
+syntax enable         " Enable syntax highlighting
+
+" Use Solarized colors
+set background=dark
+colorscheme solarized
+
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
-
-call pathogen#infect()
 
 " :alias
 com VR :vertical resize 80
