@@ -1,3 +1,10 @@
 [user]
 	name = Jyrki Lilja
 	email = jyrkij.lilja@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	autocrlf = input
+	savecrlf = true
