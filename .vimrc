@@ -51,10 +51,13 @@ set ruler               " ruler display in status line
 set showmode            " show mode at bottom of screen
 set showcmd             " display some infos (in visual)
 set number              " show line numbers
-"set nobackup           " disable backup files (filename~)
-set backup
 set showmatch           " show matching brackets (),{},[]
 set ww=<,>,[,]          " whichwrap -- left/right keys can traverse up/down
+
+" backup handling
+set backup
+set backupdir=$TMPDIR//
+set directory=$TMPDIR//
 
 " wrapping
 set textwidth=75
