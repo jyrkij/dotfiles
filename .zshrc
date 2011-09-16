@@ -39,4 +39,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
 alias ls="ls -GFh"
+
+function git_log_from() {
+git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "+%s"`
+}
+
 export CLICOLOR=1
