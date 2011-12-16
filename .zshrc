@@ -40,6 +40,7 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
 alias ls="ls -GFh"
 alias gf="git flow"
+alias gl="git log --pretty=oneline --decorate=full --abbrev-commit"
 
 function git_log_from() {
 git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "+%s"`
