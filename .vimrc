@@ -1,5 +1,7 @@
 call pathogen#infect()
 
+set nocompatible
+
 " os x backspace fix
 set backspace=indent,eol,start
 "set t_kb
@@ -56,8 +58,8 @@ set ww=<,>,[,]          " whichwrap -- left/right keys can traverse up/down
 
 " backup handling
 set backup
-set backupdir=$TMPDIR//
-set directory=$TMPDIR//
+set backupdir=~/.vim/.backup
+set directory=~/.vim/.swp
 
 " wrapping
 set textwidth=75
@@ -84,8 +86,8 @@ set guifont=Dejavu\ Sans\ Mono\ 10 " backslash spaces
 "set columns=95
 
 " F5 toggles spell checking
-:map <F5> :setlocal spell! spelllang=de_de<cr>
-:imap <F5> <C-o>:setlocal spell! spelllang=de_de<cr>
+:map <F5> :setlocal spell! spelllang=en<cr>
+:imap <F5> <C-o>:setlocal spell! spelllang=en<cr>
 
 " insert new line
 map <S-Enter> O<ESC> " inserts new line [before the current line] without
@@ -111,3 +113,8 @@ nnoremap <C-P> :tabp<CR>
 
 " quick way to source vimrc
 nmap ,s :source ~/.vimrc<cr>
+
+" Cool tab completion stuff
+set wildmenu
+set wildmode=list:longest,full
+
