@@ -48,7 +48,7 @@ git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "
 
 LS_CMD='ls'
 
-if COREUTILS_PREFIX=(brew --prefix coreutils)
+if (brew --prefix coreutils &>/dev/null 2>&1)
 then
     # Color listing
     eval $(gdircolors ~/.dir_colors)
