@@ -46,12 +46,19 @@ function git_log_from() {
 git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "+%s"`
 }
 
-(brew --prefix coreutils &>/dev/null 2>&1) && LS_CMD='gls' || LS_CMD='ls'
+if (brew --prefix coreutils &>/dev/null 2>&1)
+then
+    LS_CMD='gls'
+    DIRCOLORS_CMD='gdircolors'
+else
+    LS_CMD='ls'
+    DIRCOLORS_CMD='dircolors'
+fi
 
 if ($LS_CMD --color -d . &>/dev/null 2>&1)
 then
     LS_COLOR='--color'
-    eval $(gdircolors ~/.dir_colors)
+    eval $($DIRCOLORS_CMD ~/.dir_colors)
     zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 else
     LS_COLOR='-G'
