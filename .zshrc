@@ -48,3 +48,9 @@ git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "
 }
 
 export CLICOLOR=1
+
+# List directory contents after a 'cd'
+function chpwd() {
+    emulate -LR zsh
+    ls
+}
