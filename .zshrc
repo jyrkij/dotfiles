@@ -46,22 +46,15 @@ function git_log_from() {
 git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "+%s"`
 }
 
-LS_CMD='ls'
+(brew --prefix coreutils &>/dev/null 2>&1) && LS_CMD='gls' || LS_CMD='ls'
 
-if (brew --prefix coreutils &>/dev/null 2>&1)
+if ($LS_CMD --color -d . &>/dev/null 2>&1)
 then
-    # Color listing
+    LS_COLOR='--color'
     eval $(gdircolors ~/.dir_colors)
     zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-    LS_CMD='gls'
-fi
-
-LS_COLOR=''
-# Enable ls colors
-if [ "$DISABLE_LS_COLORS" != "true" ]
-then
-    # Find the option for using colors in ls, depending on the version: Linux or BSD
-    $($LS_CMD --color -d . &>/dev/null 2>&1) && LS_COLOR='--color' || LS_COLOR='-G'
+else
+    LS_COLOR='-G'
 fi
 
 LS_CMD="$LS_CMD $LS_COLOR -Fh"
