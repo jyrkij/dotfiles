@@ -3,3 +3,12 @@ termcapinfo xterm ti@:te@
 # bind Shift+PgUp/PgDn
 bindkey -m "^[[5;2~" stuff ^b
 bindkey -m "^[[6;2~" stuff ^f
+
+caption always '%{= dg} %{B}%H %{G}|%=%?%{d}%-w%?%{G}[ %{G}%n %t%?{%uw}%?%{G} ]%{w}%?%+w%?%=%{G}| %{B}%D %c'
+defscrollback 20000
+vbell on
+startup_message off
+termcapinfo xterm ti@:te@
+autodetach on
+bindkey -k F1 prev
+bindkey -k F2 next
