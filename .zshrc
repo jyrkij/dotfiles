@@ -35,9 +35,28 @@ bindkey '_t' transpose-words
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-#export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+# PATH helper functions from http://superuser.com/questions/408912
+
+# is $1 missing from $2 (or PATH) ?
+no_path() {
+    eval "case :\$${2-PATH}: in *:$1:*) return 1;; *) return 0;; esac"
+}
+# if $1 exists and is not in path, append it
+add_path () {
+    [ -d ${1:-.} ] && no_path $* && eval ${2:-PATH}="\$${2:-PATH}:$1"
+}
+# if $1 exists and is not in path, prepend it
+pre_path () {
+    [ -d ${1:-.} ] && no_path $* && eval ${2:-PATH}="$1:\$${2:-PATH}"
+}
+# if $1 is in path, remove it
+del_path () {
+    no_path $* || eval ${2:-PATH}=`eval echo :'$'${2:-PATH}: |
+        sed -e "s;:$1:;:;g" -e "s;^:;;" -e "s;:\$;;"`
+}
+
+add_path /var/lib/gems/1.8/bin
+export PATH
 
 alias gf="git flow"
 alias gl="git log --pretty=oneline --decorate=full --abbrev-commit"
@@ -48,6 +67,11 @@ git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "
 
 if (brew --prefix coreutils &>/dev/null 2>&1)
 then
+    del_path /usr/local/bin
+    del_path /usr/local/sbin
+    pre_path /usr/local/bin
+    pre_path /usr/local/sbin
+    export PATH
     LS_CMD='gls'
     DIRCOLORS_CMD='gdircolors'
 else
