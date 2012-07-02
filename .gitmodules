@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/phpcomplete.vim"]
 	path = .vim/bundle/phpcomplete.vim
 	url = https://github.com/shawncplus/phpcomplete.vim.git
+[submodule ".vim/bundle/vim-easytags"]
+	path = .vim/bundle/vim-easytags
+	url = https://github.com/xolox/vim-easytags.git
