@@ -1,2 +1,4 @@
 let g:spf13_bundle_groups=['general', 'programming', 'php', 'javascript', 'html', 'misc']
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'xolox/vim-easytags'
+Bundle 'jistr/vim-nerdtree-tabs'

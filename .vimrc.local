@@ -1,0 +1,5 @@
+""set t_Co=256 " fix CSApprox by telling it we have 256 colors even if we didn't
+""colorscheme solarized
+map <C-e> <plug>NERDTreeTabsToggle<CR>
+map <F5> :tabp<CR>
+map <F6> :tabn<CR>
