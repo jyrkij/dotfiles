@@ -1,5 +1,7 @@
-set t_Co=256 " fix CSApprox by telling it we have 256 colors even if we didn't
-colorscheme solarized
-map <C-e> <plug>NERDTreeTabsToggle<CR>
+colorscheme molokai
 map <F5> :tabp<CR>
 map <F6> :tabn<CR>
+
+if has('gui_macvim')
+    set transparency=0 " no transparency for macvim. It just disturbs.
+endif
