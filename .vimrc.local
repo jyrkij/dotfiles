@@ -1,4 +1,5 @@
-colorscheme molokai
+color ir_black
+color solarized
 map <F5> :tabp<CR>
 map <F6> :tabn<CR>
 
