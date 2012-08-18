@@ -103,3 +103,5 @@ function chpwd() {
     emulate -LR zsh
     ls
 }
+
+export EDITOR=vim
