@@ -1,8 +1,18 @@
 color ir_black
 color solarized
-map <F5> :tabp<CR>
-map <F6> :tabn<CR>
 
 if has('gui_macvim')
     set transparency=0 " no transparency for macvim. It just disturbs.
 endif
+
+if has('gui')
+    set columns=90
+endif
+
+set gfn=Source\ Code\ Pro:h14,Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+
+" I want to have UTF-8 and UNIX line endings everywhere.
+set fileencoding=utf8
+set encoding=utf8
+set termencoding=utf8
+set ffs=unix,dos
