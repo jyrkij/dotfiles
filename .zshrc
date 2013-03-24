@@ -108,3 +108,6 @@ export EDITOR=vim
 
 alias jliljanet="ssh jlilja.net -t 'tmux attach || tmux'"
 alias hp1="ssh hp1 -t 'tmux attach || tmux'"
+
+pre_path "$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
