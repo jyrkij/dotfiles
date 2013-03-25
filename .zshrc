@@ -65,30 +65,27 @@ function git_log_from() {
 git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "+%s"`
 }
 
-if (brew --prefix coreutils &>/dev/null 2>&1)
+if ([[ -d /usr/local/Cellar/ ]])
 then
     del_path /usr/local/bin
     del_path /usr/local/sbin
     pre_path /usr/local/bin
     pre_path /usr/local/sbin
-    export PATH
-    LS_CMD='gls'
-    DIRCOLORS_CMD='gdircolors'
-else
-    LS_CMD='ls'
-    DIRCOLORS_CMD='dircolors'
+    if (brew --prefix coreutils &>/dev/null 2>&1); then
+        pre_path "$(brew --prefix coreutils)/libexec/gnubin"
+    fi
 fi
 
-if ($LS_CMD --color -d . &>/dev/null 2>&1)
+if (ls --color -d . &>/dev/null 2>&1)
 then
     LS_COLOR='--color'
-    eval $($DIRCOLORS_CMD ~/.dir_colors)
+    eval $(dircolors ~/.dir_colors)
     zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 else
     LS_COLOR='-G'
 fi
 
-LS_CMD="$LS_CMD $LS_COLOR -Fh"
+LS_CMD="ls $LS_COLOR -Fh"
 
 alias ls="$LS_CMD"
 
@@ -111,3 +108,6 @@ alias hp1="ssh hp1 -t 'tmux attach || tmux'"
 
 pre_path "$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+export PATH
+
