@@ -23,7 +23,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx textmate git brew extract git-flow)
+plugins=(brew gem git git-flow extract osx ruby)
 
 # Input controls
 bindkey '^[[1;3D' backward-word    # alt + LEFT
@@ -55,14 +55,11 @@ del_path () {
         sed -e "s;:$1:;:;g" -e "s;^:;;" -e "s;:\$;;"`
 }
 
-add_path /var/lib/gems/1.8/bin
-export PATH
-
 alias gf="git flow"
 alias gl="git log --pretty=oneline --decorate=full --abbrev-commit"
 
 function git_log_from() {
-git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "+%s"`
+    git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "+%s"`
 }
 
 if ([[ -d /usr/local/Cellar/ ]])
