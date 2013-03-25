@@ -106,5 +106,7 @@ alias hp1="ssh hp1 -t 'tmux attach || tmux'"
 pre_path "$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+pre_path '/Applications/MAMP/bin/php/php5.4.10/bin/'
+
 export PATH
 
