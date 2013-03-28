@@ -103,6 +103,11 @@ export EDITOR=vim
 alias jliljanet="ssh jlilja.net -t 'tmux attach || tmux'"
 alias hp1="ssh hp1 -t 'tmux attach || tmux'"
 
+# Focus Flow {
+    alias focus1="ssh root@server.focusflow.net"
+    alias focus2="ssh root@server.focusflow2.net"
+# }
+
 pre_path "$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
