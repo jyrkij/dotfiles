@@ -104,14 +104,16 @@ alias jliljanet="ssh jlilja.net -t 'tmux attach || tmux'"
 alias hp1="ssh hp1 -t 'tmux attach || tmux'"
 
 # Focus Flow {
-    alias focus1="ssh root@server.focusflow.net"
-    alias focus2="ssh root@server.focusflow2.net"
+    alias flow1="ssh root@server.focusflow.net -t 'screen -DRU'"
+    alias flow2="ssh root@server.focusflow2.net -t 'screen -DRU'"
+    alias aa1="ssh root@aa1.focusflow.net -t 'screen -DRU'"
+    alias git.focusflow.net="ssh root@git.focusflow.net -t 'screen -DRU'"
 # }
+
+pre_path '/Applications/MAMP/bin/php/php5.4.10/bin'
 
 pre_path "$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-pre_path '/Applications/MAMP/bin/php/php5.4.10/bin/'
 
 export PATH
 
