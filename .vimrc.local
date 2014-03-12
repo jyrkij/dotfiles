@@ -16,3 +16,6 @@ set fileencoding=utf8
 set encoding=utf8
 set termencoding=utf8
 set ffs=unix,dos
+
+" Silverstripe coding
+au BufNewFile,BufRead *.ss setf html
