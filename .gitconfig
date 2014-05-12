@@ -23,3 +23,6 @@
 	lgb = "!git lg --branches"
 	up = "!git remote update -p; git merge --ff-only @{u}"
 	nomerge = merge --no-commit --no-ff
+	ignore = !git update-index --assume-unchanged
+	unignore = !git update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep ^[a-z]
