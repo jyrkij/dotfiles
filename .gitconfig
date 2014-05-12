@@ -20,3 +20,6 @@
 	default = simple
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lgb = "!git lg --branches"
+	up = "!git remote update -p; git merge --ff-only @{u}"
+	nomerge = merge --no-commit --no-ff
