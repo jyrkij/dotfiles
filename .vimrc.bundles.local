@@ -1,4 +1,3 @@
-let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'php', 'ruby', 'javascript', 'html', 'misc']
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'vim-scripts/smarty.vim'
 Bundle 'christoomey/vim-tmux-navigator'
