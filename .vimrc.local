@@ -14,5 +14,8 @@ set encoding=utf8
 set termencoding=utf8
 set ffs=unix,dos
 
+" SCSS linting
+let g:syntastic_scss_checkers = ['scss_lint']
+
 " Silverstripe coding
 au BufNewFile,BufRead *.ss setf html
