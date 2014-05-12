@@ -100,7 +100,7 @@ function chpwd() {
 
 export EDITOR=vim
 
-alias jliljanet="ssh jlilja.net -t 'tmux attach || tmux'"
+alias jln1="ssh root@server1.jlilja.net -t 'screen -DRU'"
 alias hp1="ssh hp1 -t 'tmux attach || tmux'"
 
 # Focus Flow {
