@@ -104,10 +104,10 @@ alias jln1="ssh root@server1.jlilja.net -t 'screen -DRU'"
 alias hp1="ssh hp1 -t 'tmux attach || tmux'"
 
 # Focus Flow {
-    alias flow1="ssh root@server.focusflow.net -t 'screen -DRU'"
-    alias flow2="ssh root@server.focusflow2.net -t 'screen -DRU'"
-    alias aa1="ssh root@aa1.focusflow.net -t 'screen -DRU'"
-    alias git.focusflow.net="ssh root@git.focusflow.net -t 'screen -DRU'"
+    alias flow1="ssh root@server.focusflow.net -t 'screen -DRUS jyrkililja'"
+    alias flow2="ssh root@server.focusflow2.net -t 'screen -DRUS jyrkililja'"
+    alias aa1="ssh root@aa1.focusflow.net -t 'screen -DRUS jyrkililja'"
+    alias git.focusflow.net="ssh root@git.focusflow.net -t 'screen -DRUS jyrkililja'"
 # }
 
 pre_path '/Applications/MAMP/bin/php/php5.4.10/bin'
