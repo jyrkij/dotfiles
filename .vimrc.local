@@ -1,3 +1,5 @@
+set sw=2 ts=2 sts=2 et tw=76
+
 if has('gui_macvim')
     set transparency=0 " no transparency for macvim. It just disturbs.
 endif
