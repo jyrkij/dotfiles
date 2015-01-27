@@ -45,14 +45,15 @@ no_path() {
 add_path () {
     [ -d ${1:-.} ] && no_path $* && eval ${2:-PATH}="\$${2:-PATH}:$1"
 }
-# if $1 exists and is not in path, prepend it
-pre_path () {
-    [ -d ${1:-.} ] && no_path $* && eval ${2:-PATH}="$1:\$${2:-PATH}"
-}
 # if $1 is in path, remove it
 del_path () {
     no_path $* || eval ${2:-PATH}=`eval echo :'$'${2:-PATH}: |
         sed -e "s;:$1:;:;g" -e "s;^:;;" -e "s;:\$;;"`
+}
+# if $1 exists and is not in path, prepend it
+pre_path () {
+    del_path $1
+    [ -d ${1:-.} ] && no_path $* && eval ${2:-PATH}="$1:\$${2:-PATH}"
 }
 
 alias gf="git flow"
