@@ -127,8 +127,8 @@ pre_path '/Applications/MAMP/bin/php/php5.4.10/bin'
 
 pre_path "$HOME/.composer/vendor/bin"
 
-pre_path "$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# To enable shims and autocompletion add to your profile:
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 pre_path "$HOME/bin"
 
