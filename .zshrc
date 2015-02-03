@@ -23,7 +23,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew brew-cask bundler gem git git-flow git-hubflow git-remote-branch history-substring-search extract npm osx pass pod ruby sublime tmux vagrant web-search)
+plugins=(brew brew-cask bundler gem git git-flow git-hubflow git-remote-branch gpg-agent history-substring-search extract npm osx pass pod ruby sublime tmux vagrant web-search)
 
 # Input controls
 bindkey '^[[1;3D' backward-word    # alt + LEFT
@@ -100,6 +100,10 @@ function chpwd() {
 }
 
 export EDITOR=vim
+
+if (brew --prefix gnupg2 &>/dev/null 2>&1); then
+    alias gpg="gpg2"
+fi
 
 # A way to get IP addresses {
     # http://stackoverflow.com/a/13322549/359059
