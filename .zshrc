@@ -116,7 +116,8 @@ alias hp1="ssh jyrkililja@hp1 -t 'tmux attach || tmux'"
 
 # Focus Flow {
     alias backup1.focusflow.net="ssh root@backup1.focusflow.net -t 'screen -DRUS jyrkililja'"
-    alias factori="ssh root@palvelin-1.thefactori.com -t 'screen -DRUS jyrkililja'"
+    alias pfactori="ssh root@164.215.38.8 -t 'screen -DRUS jyrkililja'"
+    alias dev1="ssh root@dev1.thefactori.com -t 'screen -DRUS jyrkililja'"
     alias flow1="ssh root@server.focusflow.net -t 'screen -DRUS jyrkililja'"
     alias flow2="ssh root@server.focusflow2.net -t 'screen -DRUS jyrkililja'"
     alias flow3="ssh root@server3.focusflow.net -t 'screen -DRUS jyrkililja'"
