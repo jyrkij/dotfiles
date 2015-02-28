@@ -100,6 +100,7 @@ function chpwd() {
 }
 
 export EDITOR=vim
+export VISUAL=vim
 
 if (brew --prefix gnupg2 &>/dev/null 2>&1); then
     alias gpg="gpg2"
