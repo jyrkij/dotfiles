@@ -23,7 +23,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew brew-cask bundler gem git git-flow git-hubflow git-remote-branch gpg-agent history-substring-search extract npm osx pass pod rails ruby sublime tmux vagrant web-search)
+plugins=(brew brew-cask bundler gem git git-flow git-hubflow git-remote-branch history-substring-search extract npm osx pass pod rails ruby sublime tmux vagrant web-search)
 
 # Input controls
 bindkey '^[[1;3D' backward-word    # alt + LEFT
@@ -101,6 +101,21 @@ function chpwd() {
 
 export EDITOR=vim
 export VISUAL=vim
+
+# GPG agent startup & configuration. {
+    if [ -f ~/.gpg-agent-info ]; then
+        source ~/.gpg-agent-info
+    fi
+    if ! gpg-connect-agent --quiet /bye > /dev/null 2> /dev/null; then
+        eval $(gpg-agent --daemon --write-env-file)
+        chmod 600 ~/.gpg-agent-info
+    fi
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+    export SSH_AGENT_PID
+    GPG_TTY=$(tty)
+    export GPG_TTY
+# }
 
 alias fs="touch signaturetestfile; gpg -s signaturetestfile; rm signaturetestfile signaturetestfile.gpg"
 alias killgpgagent="pkill -u `whoami` gpg-agent; unset GPG_AGENT_INFO SSH_AGENT_PID SSH_AUTH_SOCK"
