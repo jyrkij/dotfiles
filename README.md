@@ -7,6 +7,8 @@ At this point you’ll most likely need more than what is listed here:
 - oh-my-zsh
 - spf13-vim
 - zsh as login shell
+- tmux
+- gpg2
 
 ### OS X
 
