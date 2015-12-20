@@ -10,6 +10,9 @@ endif
 
 set gfn=Source\ Code\ Pro:h14,Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
 
+let NERDTreeQuitOnOpen=0
+let g:nerdtree_tabs_open_on_gui_startup=1
+
 " I want to have UTF-8 and UNIX line endings everywhere.
 set fileencoding=utf8
 set encoding=utf8
