@@ -23,7 +23,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew brew-cask bundler gem git git-flow git-hubflow git-remote-branch history-substring-search extract npm osx pass pod rails ruby sublime tmux vagrant web-search)
+plugins=(brew brew-cask bundler composer gem git git-flow git-hubflow git-remote-branch history-substring-search extract npm osx pass pod rails ruby sublime tmux vagrant web-search)
 
 # Input controls
 bindkey '^[[1;3D' backward-word    # alt + LEFT
