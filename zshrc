@@ -125,6 +125,9 @@ alias killgpgagent="pkill -u `whoami` gpg-agent; unset GPG_AGENT_INFO SSH_AGENT_
     alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 # }
 
+# A way to upgrade vim with rbenv
+alias upgrade_vim="rbenv local system && brew unlink vim && brew install vim --override-system-vi --with-python3 --with-cscope --with-lua && rbenv local 2.2.0"
+
 alias jirc="ssh jyrkililja@server1.jlilja.net -t 'screen -DRUS jyrkililja-irssi'"
 alias jln1="ssh root@server1.jlilja.net -t 'byobu'"
 alias hp1="ssh jyrkililja@hp1 -t 'tmux attach || tmux'"
