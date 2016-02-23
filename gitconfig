@@ -29,3 +29,9 @@
 	ignored = !git ls-files -v | grep ^[a-z]
 [diff "localizablestrings"]
 	textconv = "iconv -f utf-16 -t utf-8"
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+[receive]
+	fsckobjects = true
