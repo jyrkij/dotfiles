@@ -103,7 +103,7 @@ export EDITOR=vim
 export VISUAL=vim
 
 alias fs="touch signaturetestfile; gpg -s signaturetestfile; rm signaturetestfile signaturetestfile.gpg"
-alias killgpgagent="pkill -u `whoami` gpg-agent; unset GPG_AGENT_INFO SSH_AGENT_PID SSH_AUTH_SOCK"
+alias killgpgagent="pkill -u `whoami` gpg-agent; unset GPG_AGENT_INFO SSH_AGENT_PID SSH_AUTH_SOCK; rm ~/.gnupg/gpg-agent.env"
 
 # A way to get IP addresses {
     # http://stackoverflow.com/a/13322549/359059
