@@ -31,6 +31,8 @@
 	fsckobjects = true
 [diff]
 	tool = Kaleidoscope
+	algorithm = patience
+	compactionHeuristic = true
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustexitcode = true
@@ -42,3 +44,5 @@
 	prompt = false
 [mergetool]
 	prompt = false
+[submodule]
+	fetchJobs = 4
