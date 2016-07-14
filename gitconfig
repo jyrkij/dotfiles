@@ -10,7 +10,7 @@
 	autocrlf = input
 	savecrlf = true
 	editor = vim
-	excludesfile = /Users/jyrkililja/.gitignore_global
+	excludesfile = /Users/jyrki/.gitignore_global
 [push]
 	default = simple
 [alias]
