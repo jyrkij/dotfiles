@@ -111,7 +111,7 @@ alias killgpgagent="pkill -u `whoami` gpg-agent; unset GPG_AGENT_INFO SSH_AGENT_
 # }
 
 # A way to upgrade vim with rbenv
-alias upgrade_vim="rbenv local system && brew unlink vim && brew install vim --override-system-vi --with-python3 --with-cscope --with-lua && rbenv local 2.2.0"
+alias upgrade_vim="rbenv local system && brew unlink vim && brew install vim --override-system-vi --with-python3 --with-cscope --with-lua && rbenv local 2.2.2"
 
 # Thunderbird
 alias thunderbird="open -a Thunderbird"
