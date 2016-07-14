@@ -113,6 +113,9 @@ alias killgpgagent="pkill -u `whoami` gpg-agent; unset GPG_AGENT_INFO SSH_AGENT_
 # A way to upgrade vim with rbenv
 alias upgrade_vim="rbenv local system && brew unlink vim && brew install vim --override-system-vi --with-python3 --with-cscope --with-lua && rbenv local 2.2.0"
 
+# Thunderbird
+alias thunderbird="open -a Thunderbird"
+
 alias jirc="ssh jyrkililja@server1.jlilja.net -t 'screen -DRUS jyrkililja-irssi'"
 alias jln1="ssh root@server1.jlilja.net -t 'byobu'"
 alias hp1="ssh jyrkililja@hp1 -t 'tmux attach || tmux'"
