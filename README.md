@@ -9,6 +9,8 @@ At this point you’ll most likely need more than what is listed here:
 - zsh as login shell
 - tmux and [tmux-plugin-manager](https://github.com/tmux-plugins/tpm)
 - gpg2
+- git
+- [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 ### OS X
 
