@@ -11,6 +11,7 @@
 	savecrlf = true
 	editor = vim
 	excludesfile = /Users/jyrki/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
 	default = simple
 [alias]
@@ -21,6 +22,7 @@
 	ignore = !git update-index --assume-unchanged
 	unignore = !git update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep ^[a-z]
+	patch = !git --no-pager diff --no-color
 [diff "localizablestrings"]
 	textconv = "iconv -f utf-16 -t utf-8"
 [transfer]
