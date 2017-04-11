@@ -23,6 +23,7 @@
 	unignore = !git update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep ^[a-z]
 	patch = !git --no-pager diff --no-color
+	restore = !git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
 	convertlocalizablestrings = "!f() { cd ${GIT_PREFIX:-.}; file -I \"$1\" | grep utf-16 > /dev/null && iconv -f utf-16 -t utf-8 \"$1\" || cat \"$1\"; }; f"
 	merge-upstream = merge --ff-only @{u}
 [diff "localizablestrings"]
