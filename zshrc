@@ -128,11 +128,19 @@ alias hp1="ssh jyrkililja@hp1 -t 'tmux attach || tmux'"
     alias flow2="ssh root@server.focusflow2.net -t 'screen -DRUS jyrkililja'"
     alias flow3="ssh root@server3.focusflow.net -t 'screen -DRUS jyrkililja'"
     alias flow4="ssh root@server4.focusflow.net -t 'screen -DRUS jyrkililja'"
+    alias flow5="ssh root@server5.focusflow.net -t 'screen -DRUS jyrkililja'"
     alias flowns1="ssh root@77.86.176.114 -t 'screen -DRUS jyrkililja'"
-    alias flowns2="ssh root@77.86.176.115 -t 'screen -DRUS jyrkililja'"
+    alias flowns2="ssh root@77.86.252.138 -t 'screen -DRUS jyrkililja'"
+    alias flowns3="ssh root@94.237.28.18 -t 'screen -DRUS jyrkililja'"
     alias aa1="ssh root@aa1.focusflow.net -t 'screen -DRUS jyrkililja'"
     alias git.focusflow.net="ssh root@git.focusflow.net -t 'screen -DRUS jyrkililja'"
     alias mhyp.focusflow.net="ssh root@mhyp.focusflow.net -t 'screen -DRUS jyrkililja'"
+
+    function query_flowns() {
+        for i in 1 2 3; do
+            dig @ns$i.focusflow.net +short +identify "$@"
+        done
+    }
 # }
 
 alias weather="curl wttr.in/Rovaniemi"
