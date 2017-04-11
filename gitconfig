@@ -23,8 +23,9 @@
 	unignore = !git update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep ^[a-z]
 	patch = !git --no-pager diff --no-color
+	convertlocalizablestrings = "!f() { cd ${GIT_PREFIX:-.}; file -I \"$1\" | grep utf-16 > /dev/null && iconv -f utf-16 -t utf-8 \"$1\" || cat \"$1\"; }; f"
 [diff "localizablestrings"]
-	textconv = "iconv -f utf-16 -t utf-8"
+	textconv = "git convertlocalizablestrings"
 [transfer]
 	fsckobjects = true
 [fetch]
