@@ -150,8 +150,6 @@ alias hp1="ssh jyrkililja@hp1 -t 'tmux attach || tmux'"
 alias weather="curl wttr.in/Rovaniemi"
 alias winger="finger rovaniemi@graph.no"
 
-pre_path '/Applications/MAMP/bin/php/php5.4.10/bin'
-
 pre_path "$HOME/.composer/vendor/bin"
 
 # To enable shims and autocompletion add to your profile:
