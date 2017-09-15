@@ -147,6 +147,21 @@ alias hp1="ssh jyrkililja@hp1 -t 'tmux attach || tmux'"
     }
 # }
 
+# toggle-ansible from Antti Haavikko
+toggle-ansible () {
+  COLOR='\033[0;33m'
+  NC='\033[0m'
+  ANSIBLE_VERSION="$(ansible --version)"
+  if [[ "$ANSIBLE_VERSION" =~ "1.9" ]]
+  then
+    echo "\n${COLOR}Linking newest Ansible${NC}"
+    brew unlink ansible@1.9 && brew link ansible
+  else
+    echo "\n${COLOR}Linking Ansible 1.9${NC}"
+    brew unlink ansible && brew link ansible@1.9 --force
+  fi
+}
+
 alias weather="curl wttr.in/Rovaniemi"
 alias winger="finger rovaniemi@graph.no"
 
