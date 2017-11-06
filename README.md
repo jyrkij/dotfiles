@@ -4,8 +4,8 @@
 
 At this point you’ll most likely need more than what is listed here:
 
-- oh-my-zsh
-- spf13-vim
+- [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh#basic-installation)
+- [spf13-vim](https://github.com/spf13/spf13-vim#installation)
 - zsh as login shell
 - tmux and [tmux-plugin-manager](https://github.com/tmux-plugins/tpm)
 - gpg2
@@ -14,7 +14,7 @@ At this point you’ll most likely need more than what is listed here:
 
 ### OS X
 
-- brew
+- [brew](https://brew.sh)
 
 ## Installation
 
