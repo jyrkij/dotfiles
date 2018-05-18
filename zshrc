@@ -146,6 +146,10 @@ alias hp1="ssh jyrkililja@hp1 -t 'tmux attach || tmux'"
     }
 # }
 
+function openssl_check_dates() {
+  echo -n | openssl s_client -servername $1 -connect $1:443 2>/dev/null | openssl x509 -noout -dates
+}
+
 # toggle-ansible from Antti Haavikko
 toggle-ansible () {
   COLOR='\033[0;33m'
