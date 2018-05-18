@@ -113,7 +113,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # }
 
 # A way to upgrade vim with rbenv
-alias upgrade_vim="rbenv local system && brew unlink vim && brew install vim --with-override-system-vi --with-python3 --with-cscope --with-lua && rbenv local 2.3.1"
+alias upgrade_vim="cd; rbenv local system && brew unlink vim && brew install vim --with-override-system-vi --with-python3 --with-cscope --with-lua && rbenv local --unset && cd -"
 
 alias upgrade_spf13="sh <(curl https://j.mp/spf13-vim3 -L)"
 
