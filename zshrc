@@ -124,6 +124,10 @@ alias jirc="ssh jyrkililja@server1.jlilja.net -t 'screen -DRUS jyrkililja-irssi'
 alias jln1="ssh root@server1.jlilja.net -t 'byobu'"
 alias hp1="ssh jyrkililja@hp1 -t 'tmux attach || tmux'"
 
+# jlilja.net etätuki {
+  alias jln_etatuki="ssh -L 5900:localhost:7000 jyrkililja@server1.jlilja.net"
+# }
+
 # Focus Flow {
     alias backup1.focusflow.net="ssh root@backup1.focusflow.net -t 'screen -DRUS jyrkililja'"
     alias pfactori="ssh root@164.215.38.8 -t 'screen -DRUS jyrkililja'"
