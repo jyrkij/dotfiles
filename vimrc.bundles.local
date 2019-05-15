@@ -1,7 +1,0 @@
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'vim-scripts/smarty.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'jamessan/vim-gnupg'
-Bundle 'slim-template/vim-slim.git'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'davidoc/taskpaper.vim'
