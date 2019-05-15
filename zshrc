@@ -1,42 +1,107 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# vim: set et sts=4 ts=4 sw=4 tw=78
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=100000
+setopt appendhistory autocd extendedglob
+# End of lines configured by zsh-newuser-install
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="sunrise"
-# Cool themes: muse, juanghurtado(?), nanotech, sunrise, eastwood, gallois,
-# gentoo, kphoen, 
+# Use modern completion system
+zstyle :compinstall filename '$HOME/.zshrc'
+autoload -Uz compinit
+compinit
+unsetopt menu_complete
+unsetopt flow_control
+setopt auto_menu
+setopt complete_in_word
+setopt always_to_end
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+if which dircolors > /dev/null; then
+    eval "$(dircolors -b)"
+    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+fi
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,command'
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY_TIME
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt HIST_BEEP
 
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+# Sunrise theme for oh-my-zsh
+# Intended to be used with Solarized: http://ethanschoonover.com/solarized
+# Color shortcuts
+R=$fg_no_bold[red]
+G=$fg_no_bold[green]
+M=$fg_no_bold[magenta]
+Y=$fg_no_bold[yellow]
+B=$fg_no_bold[blue]
+RESET=$reset_color
+if [ "$USER" = "root" ]; then
+    PROMPTCOLOR="%{$R%}" PROMPTPREFIX="-!-";
+else
+    PROMPTCOLOR="" PROMPTPREFIX="---";
+fi
+local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
+# %B sets bold text
+PROMPT="%B$PROMPTPREFIX %2~ %{$M%}%B»%b%{$RESET%} "
+RPS1="${return_code}"
+# End theme
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+# Up & down arrows search history from beginning of the line
+# See https://superuser.com/a/585004 for reference
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
-# Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+# Edit command line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew brew-cask bundler gem git git-flow git-hubflow git-remote-branch gpg-agent history-substring-search extract npm osx pass pod rails ruby tmux vagrant web-search)
+# Additional search mapping for vi mode
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+# Common emacs bindings for vi mode
+bindkey '\e[3~'   delete-char
+bindkey '^A'      beginning-of-line
+bindkey '^E'      end-of-line
+bindkey '^R'      history-incremental-pattern-search-backward
+bindkey '\e.'     insert-last-word
+# Tmux home/end
+bindkey '\e[1~'      beginning-of-line
+bindkey '\e[4~'      end-of-line
+# Urxvt
+bindkey '\e[7~'      beginning-of-line
+bindkey '\e[8~'      end-of-line
 
-# Input controls
-bindkey '^[[1;3D' backward-word    # alt + LEFT
-bindkey '^[[1;3C' forward-word     # alt + RIGHT
-bindkey '_^?' backward-delete-word # alt + BACKSPACE  delete word backward
-bindkey '^[[3;3~' delete-word      # alt + DELETE  delete word forward
-bindkey '^[' self-insert           # alt + ENTER  allow multiline input
-bindkey '_t' transpose-words
-
-source $ZSH/oh-my-zsh.sh
+# user-friendly command output
+export CLICOLOR=1
+ls --color=auto &> /dev/null && alias ls='ls --color=auto'
+alias grep="grep --color"
 
 # PATH helper functions from http://superuser.com/questions/408912
-
 # is $1 missing from $2 (or PATH) ?
 no_path() {
     eval "case :\$${2-PATH}: in *:$1:*) return 1;; *) return 0;; esac"
@@ -56,128 +121,26 @@ pre_path () {
     [ -d ${1:-.} ] && no_path $* && eval ${2:-PATH}="$1:\$${2:-PATH}"
 }
 
-alias gf="git flow"
-alias gl="git log --pretty=oneline --decorate=full --abbrev-commit"
-
-function git_log_from() {
-    git log --pretty=oneline --abbrev-commit --max-age=`date -j -f "%Y-%m-%d" "$1" "+%s"`
-}
-
-if ([[ -d /usr/local/Cellar/ ]])
-then
-    del_path /usr/local/bin
-    del_path /usr/local/sbin
-    pre_path /usr/local/bin
-    pre_path /usr/local/sbin
-    if (brew --prefix coreutils &>/dev/null 2>&1); then
-        pre_path "$(brew --prefix coreutils)/libexec/gnubin"
-    fi
-fi
-
-if (ls --color -d . &>/dev/null 2>&1)
-then
-    LS_COLOR='--color'
-    eval $(dircolors ~/.dir_colors)
-    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-else
-    LS_COLOR='-G'
-fi
-
-LS_CMD="ls $LS_COLOR -Fh"
-
-alias ls="$LS_CMD"
-
-# List direcory contents
-alias lsa="$LS_CMD -la"
-alias l="$LS_CMD -la"
-alias ll="$LS_CMD -l"
-alias sl="$LS_CMD" # often screw this up
-
-# List directory contents after a 'cd'
-function chpwd() {
-    emulate -LR zsh
-    ls
-}
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+pre_path "$HOME/bin"
+export PATH
 
 export EDITOR=vim
 export VISUAL=vim
 
-alias fs="touch signaturetestfile; gpg -s signaturetestfile; rm signaturetestfile signaturetestfile.gpg"
 alias killgpgagent="pkill -u `whoami` gpg-agent; unset GPG_AGENT_INFO SSH_AGENT_PID SSH_AUTH_SOCK; rm ~/.gnupg/gpg-agent.env"
 gpg-connect-agent /bye
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 # A way to get IP addresses {
-    # http://stackoverflow.com/a/13322549/359059
-    alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+	# http://stackoverflow.com/a/13322549/359059
+	alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 # }
 
-# A way to upgrade vim with rbenv
-alias upgrade_vim="cd; rbenv local system && brew unlink vim && brew install vim --with-override-system-vi --with-python3 --with-cscope --with-lua && rbenv local --unset && cd -"
-
-alias upgrade_spf13="sh <(curl https://j.mp/spf13-vim3 -L)"
-
-# Thunderbird
-alias thunderbird="open -a Thunderbird"
-
-alias jirc="ssh jyrkililja@server1.jlilja.net -t 'screen -DRUS jyrkililja-irssi'"
-alias jln1="ssh root@server1.jlilja.net -t 'byobu'"
-alias hp1="ssh jyrkililja@hp1 -t 'tmux attach || tmux'"
-
-# jlilja.net etätuki {
-  alias jln_etatuki="ssh -L 5900:localhost:7000 jyrkililja@server1.jlilja.net"
+# jlilja.net {
+	alias jln_etatuki="ssh -L 5900:localhost:7000 jyrkililja@server1.jlilja.net"
 # }
 
-# Focus Flow {
-    alias backup1.focusflow.net="ssh root@backup1.focusflow.net -t 'screen -DRUS jyrkililja'"
-    alias pfactori="ssh root@164.215.38.8 -t 'screen -DRUS jyrkililja'"
-    alias dev1="ssh root@dev1.thefactori.com -t 'screen -DRUS jyrkililja'"
-    alias flow1="ssh root@server1.focusflow.net -t 'screen -DRUS jyrkililja'"
-    alias flow3="ssh root@server3.focusflow.net -t 'screen -DRUS jyrkililja'"
-    alias flow4="ssh root@server4.focusflow.net -t 'screen -DRUS jyrkililja'"
-    alias flow5="ssh root@server5.focusflow.net -t 'screen -DRUS jyrkililja'"
-    alias flowns1="ssh root@185.123.116.230 -t 'screen -DRUS jyrkililja'"
-    alias flowns2="ssh root@77.86.252.138 -t 'screen -DRUS jyrkililja'"
-    alias flowns3="ssh root@94.237.28.18 -t 'screen -DRUS jyrkililja'"
-    alias aa1="ssh root@aa1.focusflow.net -t 'screen -DRUS jyrkililja'"
-    alias git.focusflow.net="ssh root@git.focusflow.net -t 'screen -DRUS jyrkililja'"
-    alias mhyp.focusflow.net="ssh root@mhyp.focusflow.net -t 'screen -DRUS jyrkililja'"
-
-    function query_flowns() {
-        for i in 1 2 3; do
-            dig @ns$i.focusflow.net +short +identify "$@"
-        done
-    }
-# }
-
-function openssl_check_dates() {
-  echo -n | openssl s_client -servername $1 -connect $1:443 2>/dev/null | openssl x509 -noout -dates
+openssl_check_dates() {
+	echo -n | openssl s_client -servername $1 -connect $1:443 2>/dev/null | openssl x509 -noout -dates
 }
-
-# toggle-ansible from Antti Haavikko
-toggle-ansible () {
-  COLOR='\033[0;33m'
-  NC='\033[0m'
-  ANSIBLE_VERSION="$(ansible --version)"
-  if [[ "$ANSIBLE_VERSION" =~ "1.9" ]]
-  then
-    echo "\n${COLOR}Linking newest Ansible${NC}"
-    brew unlink ansible@1.9 && brew link ansible
-  else
-    echo "\n${COLOR}Linking Ansible 1.9${NC}"
-    brew unlink ansible && brew link ansible@1.9 --force
-  fi
-}
-
-alias weather="curl wttr.in/Rovaniemi"
-alias winger="finger rovaniemi@graph.no"
-
-pre_path "$HOME/.composer/vendor/bin"
-
-# To enable shims and autocompletion add to your profile:
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-pre_path "$HOME/bin"
-
-export PATH
-
