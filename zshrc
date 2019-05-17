@@ -128,9 +128,17 @@ export PATH
 export EDITOR=vim
 export VISUAL=vim
 
-alias killgpgagent="pkill -u `whoami` gpg-agent; unset GPG_AGENT_INFO SSH_AGENT_PID SSH_AUTH_SOCK; rm ~/.gnupg/gpg-agent.env"
-gpg-connect-agent /bye
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+AGENT_SOCK="$(gpgconf --list-dirs agent-socket)"
+if [[ ! -S $AGENT_SOCK ]]; then
+    gpg-agent --daemon &>/dev/null
+fi
+export GPG_TTY=$TTY
+# Set SSH to use gpg-agent if it's enabled
+GNUPGCONFIG="${GNUPGHOME:-"$HOME/.gnupg"}/gpg-agent.conf"
+if [[ -r $GNUPGCONFIG ]] && command grep -q enable-ssh-support "$GNUPGCONFIG"; then
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+    unset SSH_AGENT_PID
+fi
 
 # A way to get IP addresses {
 	# http://stackoverflow.com/a/13322549/359059
