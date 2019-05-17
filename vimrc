@@ -18,7 +18,7 @@ set expandtab
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
-set textwidth=72
+set textwidth=80
 set autoindent
 
 set number
@@ -107,3 +107,8 @@ set fileencoding=utf8
 set encoding=utf8
 set termencoding=utf8
 set ffs=unix,dos
+
+autocmd FileType gitcommit set textwidth=72
+set colorcolumn=+1
+autocmd FileType gitcommit set colorcolumn+=51
+highlight ColorColumn ctermbg=236 guibg=#575757
