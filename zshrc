@@ -152,3 +152,7 @@ fi
 openssl_check_dates() {
 	echo -n | openssl s_client -servername $1 -connect $1:443 2>/dev/null | openssl x509 -noout -dates
 }
+
+duh() {
+    find "$1" -mindepth 1 -maxdepth 1 -exec du -sh "{}" \; | sort -h
+}
