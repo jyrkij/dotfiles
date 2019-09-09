@@ -71,6 +71,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'vim-scripts/Vimchant'
 Plug 'godlygeek/tabular'
+Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }
 Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
 call plug#end()
