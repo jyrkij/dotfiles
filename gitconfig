@@ -10,7 +10,6 @@
 	autocrlf = input
 	savecrlf = true
 	editor = vim
-	excludesfile = /Users/jyrki/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
 	default = simple
@@ -24,10 +23,7 @@
 	ignored = !git ls-files -v | grep ^[a-z]
 	patch = !git --no-pager diff --no-color
 	restore = !git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
-	convertlocalizablestrings = "!f() { cd ${GIT_PREFIX:-.}; file -I \"$1\" | grep utf-16 > /dev/null && iconv -f utf-16 -t utf-8 \"$1\" || cat \"$1\"; }; f"
 	merge-upstream = merge --ff-only @{u}
-[diff "localizablestrings"]
-	textconv = "git convertlocalizablestrings"
 [transfer]
 	fsckobjects = true
 [fetch]
@@ -38,17 +34,6 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
-[diff]
-	tool = Kaleidoscope
-	algorithm = patience
-	compactionHeuristic = true
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
-[merge]
-	tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 [mergetool]
