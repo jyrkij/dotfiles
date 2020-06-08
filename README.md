@@ -4,17 +4,16 @@
 
 At this point you’ll most likely need more than what is listed here:
 
-- [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh#basic-installation)
-- [spf13-vim](https://github.com/spf13/spf13-vim#installation)
 - zsh as login shell
 - tmux and [tmux-plugin-manager](https://github.com/tmux-plugins/tpm)
-- gpg2
+- gpg version >= 2.1
 - git
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 ### OS X
 
 - [brew](https://brew.sh)
+- reattach-to-user-namespace
 
 ## Installation
 
