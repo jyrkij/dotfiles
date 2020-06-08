@@ -158,3 +158,9 @@ openssl_check_dates() {
 duh() {
     find "$1" -mindepth 1 -maxdepth 1 -exec du -sh "{}" \; | sort -h
 }
+
+body() {
+    IFS= read -r header
+    printf '%s\n' "$header"
+    "$@"
+}
