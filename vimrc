@@ -74,6 +74,7 @@ Plug 'godlygeek/tabular'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }
 Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
+Plug 'slim-template/vim-slim'
 call plug#end()
 
 map <C-e> :NERDTreeTabsToggle<CR>
