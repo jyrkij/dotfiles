@@ -127,6 +127,7 @@ pre_path () {
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 pre_path "$HOME/bin"
+pre_path "$HOME/.local/bin"
 export PATH
 
 export EDITOR=vim
