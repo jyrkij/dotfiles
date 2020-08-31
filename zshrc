@@ -44,6 +44,8 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 setopt HIST_BEEP
 
+setopt INTERACTIVE_COMMENTS
+
 # Sunrise theme for oh-my-zsh
 # Intended to be used with Solarized: http://ethanschoonover.com/solarized
 # Color shortcuts
