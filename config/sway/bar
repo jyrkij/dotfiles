@@ -1,0 +1,28 @@
+#!/bin/sh
+
+brightness=`brightnessctl -m | cut -d, -f4`
+battery_percentage=`cat /sys/class/power_supply/BAT0/capacity`
+battery_icon=""
+if [ $battery_percentage -le 10 ]; then
+    battery_icon=""
+elif [ $battery_percentage -le 20 ]; then
+    battery_icon=""
+elif [ $battery_percentage -le 30 ]; then
+    battery_icon=""
+elif [ $battery_percentage -le 40 ]; then
+    battery_icon=""
+elif [ $battery_percentage -le 50 ]; then
+    battery_icon=""
+elif [ $battery_percentage -le 60 ]; then
+    battery_icon=""
+elif [ $battery_percentage -le 70 ]; then
+    battery_icon=""
+elif [ $battery_percentage -le 80 ]; then
+    battery_icon=""
+elif [ $battery_percentage -le 90 ]; then
+    battery_icon=""
+elif [ $battery_percentage -le 100 ]; then
+    battery_icon=""
+fi
+date=`date +'%d.%m. %H:%M %p'`
+echo " $brightness   $battery_icon $battery_percentage%   $date"
