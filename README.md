@@ -10,6 +10,33 @@ At this point you’ll most likely need more than what is listed here:
 - git
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
+### Ubuntu
+
+Install the following packages:
+
+```
+sudo apt install \
+    sway \
+    swayidle \
+    swaylock \
+    wofi \
+    kitty \
+    vifm \
+    imagemagick \
+    xwayland \
+    brightnessctl \
+    mako-notifier \
+    apparmor-utils \
+    qutebrowser
+pip3 install \
+    autotiling \
+    wpgtk
+```
+
+Some quirks to note:
+
+- https://github.com/emersion/mako/issues/257
+
 ### OS X
 
 - [brew](https://brew.sh)
