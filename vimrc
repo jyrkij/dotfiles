@@ -75,6 +75,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }
 Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
 Plug 'slim-template/vim-slim'
+Plug 'deviantfero/wpgtk.vim'
 call plug#end()
 
 map <C-e> :NERDTreeTabsToggle<CR>
@@ -99,7 +100,7 @@ augroup CustomColors
     autocmd!
     autocmd ColorScheme * call CustomColors()
 augroup END
-colorscheme peachpuff
+colorscheme wpgtk
 
 let NERDTreeQuitOnOpen=0
 let g:nerdtree_tabs_open_on_gui_startup=1

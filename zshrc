@@ -145,7 +145,7 @@ if [[ -r $GNUPGCONFIG ]] && command grep -q enable-ssh-support "$GNUPGCONFIG"; t
     unset SSH_AGENT_PID
 fi
 
-(cat ~/.cache/wal/sequences &)
+(cat ~/.config/wpg/sequences &)
 
 # A way to get IP addresses {
 	# http://stackoverflow.com/a/13322549/359059
