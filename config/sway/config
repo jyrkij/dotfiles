@@ -109,7 +109,7 @@ input "type:touch" map_to_output $laptop
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    bindsym $mod+alt+l exec swaylock -f -c 000000
+    bindsym $mod+alt+l exec killall -u `whoami` -USR1 swayidle || swaylock -f -c 000000
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
