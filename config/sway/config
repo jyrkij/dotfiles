@@ -84,6 +84,7 @@ input "type:keyboard" {
     xkb_options grp:win_space_toggle,grp_led:scroll,ctrl:nocaps
     xkb_numlock enabled
 }
+input "type:touch" map_to_output $laptop
 
 ### Key bindings
 #
