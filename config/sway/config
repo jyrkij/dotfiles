@@ -63,6 +63,9 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
 
+exec autotiling
+exec mako
+
 
 ### Input configuration
 #
