@@ -78,6 +78,13 @@ exec swayidle -w \
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+input "type:keyboard" {
+    xkb_layout us,fi
+    xkb_variant ,nodeadkeys
+    xkb_options grp:win_space_toggle,grp_led:scroll,ctrl:nocaps
+    xkb_numlock enabled
+}
+
 ### Key bindings
 #
 # Basics:
