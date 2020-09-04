@@ -1,5 +1,8 @@
 #!/bin/sh
 
+kb_layout=`swaymsg -t get_inputs | jq -r '[.[] | select (.type == "keyboard")][0] | .xkb_active_layout_name'`
+volume=`amixer -M get Master | awk -F'[][]' '/%/ {print $2}'`
+volume_icon="奔"
 brightness=`brightnessctl -m | cut -d, -f4`
 battery_percentage=`cat /sys/class/power_supply/BAT0/capacity`
 battery_icon=""
@@ -21,8 +24,8 @@ elif [ $battery_percentage -le 80 ]; then
     battery_icon=""
 elif [ $battery_percentage -le 90 ]; then
     battery_icon=""
-elif [ $battery_percentage -le 100 ]; then
+elif [ $battery_percentage -lt 100 ]; then
     battery_icon=""
 fi
 date=`date +'%d.%m. %H:%M %p'`
-echo " $brightness   $battery_icon $battery_percentage%   $date"
+echo " $kb_layout   $volume_icon $volume    $brightness   $battery_icon $battery_percentage%   $date"
