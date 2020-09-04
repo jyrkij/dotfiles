@@ -39,6 +39,8 @@ bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 
 client.focused $color1 $background $foreground $color1 $color1
+client.focused_inactive $color12 $background $foreground $color12 $color12
+client.unfocused $color4 $background $foreground $color4 $color4
 gaps outer 0
 gaps inner 20
 default_border pixel 4
@@ -249,8 +251,8 @@ bar {
     colors {
         statusline $foreground
         background $background
-        focused_workspace $color6 $color8 $background
-        active_workspace $background $color8 $background
+        focused_workspace $color1 $background $foreground
+        active_workspace $color12 $background $foreground
         inactive_workspace $background $background $foreground
     }
 }
