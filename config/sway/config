@@ -38,12 +38,16 @@ output $laptop scale 2
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 
-client.focused $color1 $background $foreground $color1 $color1
-client.focused_inactive $color12 $background $foreground $color12 $color12
-client.unfocused $color4 $background $foreground $color4 $color4
+client.focused $color1 $color1 $foreground $color1 $color1
+client.focused_inactive $color12 $color12 $foreground $color12 $color12
+client.unfocused $color4 $color4 $foreground $color4 $color4
 gaps outer 0
 gaps inner 20
-default_border pixel 4
+default_border normal 4
+title_align center
+titlebar_border_thickness 4
+titlebar_padding 4
+font FiraMono Nerd Font Mono 12
 
 ### Idle configuration
 #
