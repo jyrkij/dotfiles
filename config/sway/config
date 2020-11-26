@@ -71,6 +71,7 @@ exec swayidle -w \
 
 exec autotiling
 exec mako
+exec nextcloud
 
 
 ### Input configuration
@@ -264,6 +265,16 @@ bar {
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema cursor-theme DMZ-Black
+}
+
+for_window [app_id="com.nextcloud.desktopclient.nextcloud"] {
+    floating enable
+    border pixel 0
+    resize set width 400
+    resize set height 510
+    move position cursor
+    move left 190px
+    move down 255px
 }
 
 include /etc/sway/config.d/*
