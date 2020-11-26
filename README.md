@@ -27,7 +27,8 @@ sudo apt install \
     brightnessctl \
     mako-notifier \
     apparmor-utils \
-    qutebrowser
+    qutebrowser \
+    qtwayland5
 pip3 install \
     autotiling \
     wpgtk
