@@ -100,10 +100,10 @@ bindkey '\e[7~'      beginning-of-line
 bindkey '\e[8~'      end-of-line
 
 # user-friendly command output
-alias ls='ls -F'
+alias ls='ls -Fv'
 export CLICOLOR=1
-ls --color=auto &> /dev/null && alias ls='ls --color=auto -F'
-alias lsnc='ls --color=none -F'
+ls --color=auto &> /dev/null && alias ls='ls --color=auto -Fv'
+alias lsnc='ls --color=none -Fv'
 alias grep="grep --color"
 
 # PATH helper functions from http://superuser.com/questions/408912
