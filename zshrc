@@ -126,9 +126,11 @@ pre_path () {
     [ -d ${1:-.} ] && no_path $* && eval ${2:-PATH}="$1:\$${2:-PATH}"
 }
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 pre_path "$HOME/bin"
 pre_path "$HOME/.local/bin"
+pre_path "$HOME/.pyenv/bin"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 export PATH
 
 export EDITOR=vim
