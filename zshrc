@@ -9,6 +9,7 @@ setopt appendhistory autocd extendedglob
 # Use modern completion system
 zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
+fpath=(~/.zsh/completion $fpath /usr/share/zsh/site-functions)
 compinit
 unsetopt menu_complete
 unsetopt flow_control
