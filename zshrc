@@ -133,6 +133,7 @@ export PATH
 
 export EDITOR=vim
 export VISUAL=vim
+export LESS="IFRSX"
 
 AGENT_SOCK="$(gpgconf --list-dirs agent-socket)"
 if [[ ! -S $AGENT_SOCK ]]; then
