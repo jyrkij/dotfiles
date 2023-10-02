@@ -171,3 +171,7 @@ body() {
     printf '%s\n' "$header"
     "$@"
 }
+
+type open >/dev/null || open() {
+    (xdg-open "$@" &>/dev/null &)
+}
