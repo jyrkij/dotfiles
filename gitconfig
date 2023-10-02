@@ -11,7 +11,7 @@
 	safecrlf = true
 	editor = vim
 	excludesFile = ~/.gitignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | LESS= less --tabs=4 -RFX
 [push]
 	default = simple
 [alias]
