@@ -99,7 +99,7 @@ augroup CustomColors
     autocmd!
     autocmd ColorScheme * call CustomColors()
 augroup END
-colorscheme peachpuff
+colorscheme default
 
 let NERDTreeQuitOnOpen=0
 let g:nerdtree_tabs_open_on_gui_startup=1
