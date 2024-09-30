@@ -69,7 +69,7 @@ nmap <Leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
 " Load vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
-Plug 'vim-scripts/Vimchant'
+Plug 'jyrkij/Vimchant'
 Plug 'godlygeek/tabular'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }
