@@ -8,7 +8,7 @@ At this point you’ll most likely need more than what is listed here:
 - tmux and [tmux-plugin-manager](https://github.com/tmux-plugins/tpm)
 - gpg version >= 2.1
 - git
-- [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+- git-delta
 
 ### OS X
 

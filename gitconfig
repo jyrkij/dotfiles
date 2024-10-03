@@ -11,7 +11,7 @@
 	safecrlf = true
 	editor = vim
 	excludesFile = ~/.gitignore
-	pager = diff-so-fancy | LESS= less --tabs=4 -RFX
+	pager = delta
 [push]
 	default = simple
 [alias]
@@ -43,3 +43,11 @@
 	fetchJobs = 4
 [commit]
 	verbose = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = diff3
+[diff]
+	colorMoved = default
