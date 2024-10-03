@@ -1,3 +1,3 @@
 EXCLUDES="README.md LICENSE submodules"
-SYMLINK_DIRS="tmux"
+SYMLINK_DIRS="tmux/plugins/tpm"
 DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
